@@ -1,7 +1,7 @@
 $(document).ready(function () {
   adjustTemp()
   resetTemp()
-  // changeUnits()
+  switchPSM ()
 })
 
 function adjustTemp () {
@@ -21,18 +21,22 @@ function adjustTemp () {
   })
 }
 
-// function changeUnits () {
-//   $('.bottom button').on('click', function () {
-//     var tempRange = $(this).attr('class')
-//     tempRange = tempRange.split(' ')[0].split('-')[2]
-//     $('.temp-range').text(tempRange)
-//   })
-// }
 function resetTemp () {
   var baseTemp = 20
   var $text = $('.temp-value')
 
   $('.button-temp-low').on('click', function () {
     $text.text(baseTemp.toString() + "C")
+  })
+}
+
+// < 18 = low ; between 18 and 25 = medium; above 25 high
+
+function switchPSM () {
+  $('.bottom button').on('click', function () {
+
+    var tempRange = $(this).attr('class')
+    tempRange = tempRange.split(' ')[0].split('-')[2]
+    $('.temp-range').text(tempRange)
   })
 }

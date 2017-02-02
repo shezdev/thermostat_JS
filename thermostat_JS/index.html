@@ -3,33 +3,26 @@
 <head>
   <title>Thermostat</title>
   <link rel='stylesheet' type='text/css' href='./public/css/style.css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
-
-  <body>
-
-  <form>
-    <fieldset>
-      <fieldset>
-
-        <h1><center>20 C</center></h1>
-        <h4>low</h4>
-      </fieldset>
-
-      <div class="PSM-mode">
-        <button id="temp-low">RESET</button>
-        <button id="temp-medium">PSM ON</button>
-        <button id="temp-high">PSM OFF</button>
+<body>
+  <div id="wrapper">
+    <div class="top">
+      <div class="temperature">
+        <span class="temp-value"></span>
+        <span class="temp-range">low</span>
       </div>
-
-      <div class="temp-control">
-        <button id="temperature-up">UP</button>
-        <button id="temperature-down">DOWN</button>
+      <div class="top-buttons">
+        <button class="button-up button">UP</button>
+        <button class="button-down button">DOWN</button>
       </div>
-    </fieldset>
-  </form>
-
-    <script src="Thermostat.js">JavaScript</script>
-    <a href="http://jquery.com/">jQuery</a>
-  </body>
-
+    </div>
+    <div class="bottom">
+      <button class="button-temp-low button">RESET</button>
+      <button class="button-temp-medium button">PSM ON</button>
+      <button class="button-temp-high button">PSM OFF</button>
+    </div>
+  </div>
+  <script type="text/javascript" src="scripts.js" ></script>
+</body>
 </html>
