@@ -12,6 +12,10 @@ describe('Thermostat', function() {
     expect(thermostat._temperature).toEqual(20);
   });
 
+  it('has power saving mode on by default', function() {
+    expect(thermostat.isPowerSavingModeOn()).toBe(true);
+  });
+
   it('you can increase the temperature with an up function', function() {
     thermostat.up(1);
     expect(thermostat._temperature).toEqual(21);
@@ -27,7 +31,7 @@ describe('Thermostat', function() {
   });
 
   it('maximum temperature is 25 degrees if power saving mode is on', function() {
-    thermostat._powerSavingMode = true;
+    thermostat.powerSavingMode = true;
     expect(thermostat._maxTemp).toBe(25);
   });
 
@@ -36,8 +40,15 @@ describe('Thermostat', function() {
     expect(thermostat._maxTemp).toBe(32);
   });
 
+  it('can turn PSM back on', function() {
+    thermostat.turnOff_PSM();
+    expect(thermostat.isPowerSavingModeOn()).toBe(false);
+    thermostat.turnPowerSavingModeOn();
+    expect(thermostat.isPowerSavingModeOn()).toBe(true);
+  });
+
   it('has power saving mode on by default', function() {
-    expect(thermostat._powerSavingMode).toBe(true);
+    expect(thermostat.powerSavingMode).toBe(true);
   });
 
   it ('You can reset the temperature to 20 with a reset function', function() {
