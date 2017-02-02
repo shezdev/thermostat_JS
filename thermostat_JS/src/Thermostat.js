@@ -25,3 +25,15 @@ Thermostat.prototype.turnOff_PSM = function() {
     return this._maxTemp = 32;
 //this._powerSavingMode === false ? return this._maxTemp = 32 : return this._maxTemp
 };
+
+Thermostat.prototype.energyUsage = function() {
+  if (this._temperature < 18) {
+    return "low usage";
+  }
+  else if (this._temperature >= 18 && this._temperature < 25 ) {
+    return "medium usage";
+  }
+  else {
+    return "high usage";
+  }
+};
