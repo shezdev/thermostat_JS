@@ -25,14 +25,16 @@ it('The minimum temperature is 10 degrees', function() {
   expect(thermostat._minTemp).toBe(10);
 });
 
-// it ('If power saving mode is on, the maximum temperature is 25 degrees'
-//
-// });
+it('maximum temperature is 25 degrees if power saving mode is on', function() {
+  thermostat._powerSavingMode = true;
+  expect(thermostat._maxTemp).toBe(25);
+});
 
-// it' If power saving mode is off, the maximum temperature is 32 degrees'
-//
-// });
-//
+it('maximum temperature is 32 degrees if power saving mode is off', function() {
+  thermostat.turnOff_PSM();
+  expect(thermostat._maxTemp).toBe(32);
+});
+
 it('has power saving mode on by default', function() {
   expect(thermostat._powerSavingMode).toBe(true);
 });
