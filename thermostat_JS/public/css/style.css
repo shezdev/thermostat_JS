@@ -5,19 +5,21 @@ html {
 
 body {
   margin: 0;
-  background: #ffffdf;
+  background: white;
 }
 
 #wrapper {
-  border: 1px solid gray;
+  background-color: silver;
+  border: 3px solid #8A6AAB;
   width: 500px;
-  height: 400px;
+  height: 300px;
   position: fixed;
   top: 50%;
   left: 50%;
   margin: -200px 0 0 -250px;
   border-radius: 11px;
   overflow: hidden;
+  box-shadow: 8px 8px #999;
 }
 
 .top {
@@ -28,13 +30,14 @@ body {
 }
 
 .temperature {
-  border: 1px solid gray;
+  border: 3px solid #8A6AAB;
   border-radius: 13px;
   height: 115px;
   width: 40%;
   margin: 0 auto;
   padding-top: 35px;
   margin-top: 20px;
+  background-color: white;
 }
 
 .temperature span {
@@ -61,8 +64,20 @@ body {
   color: #cccccc;
   font-weight: bold;
   text-shadow: 1px 1px #1f272b;
+  box-shadow: 0 5px #999;
   border: 1px solid #808080;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,#3D4850), color-stop(4%,#313d45), color-stop(100%,#232B30));
+}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+  color: yellow;
+}
+
+.button:focus {
+  outline: none;
 }
 
 .top-buttons {
@@ -79,4 +94,16 @@ body {
 
 .bottom {
   text-align: center;
+}
+
+.low {
+  color: green;
+}
+
+.medium {
+  color: black;
+}
+
+.high {
+  color: red;
 }

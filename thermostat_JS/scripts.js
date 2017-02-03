@@ -1,42 +1,38 @@
-$(document).ready(function () {
-  adjustTemp()
-  resetTemp()
-  switchPSM ()
-})
+thermostat = new Thermostat();
 
-function adjustTemp () {
-  var baseTemp = 20
-  var $text = $('.temp-value')
 
-  $text.text(baseTemp.toString() + 'C')
+$("#temp-value").text(thermostat._temperature);
+$("#energy-status").text(thermostat.energyUsage());
+$("#energy-status").addClass(thermostat.energyUsage());
+$("#psm-status-button").text(thermostat.psmStatus);
 
-  $('.button-up').on('click', function () {
-    baseTemp += 1
-    $text.text(baseTemp.toString() + 'C')
-  })
+$("#up-button").click(function(){
+  $("#energy-status").removeClass(thermostat.energyUsage());
+  thermostat.up(1);
+  $("#temp-value").text(thermostat._temperature);
+  $("#energy-status").text(thermostat.energyUsage());
+  $("#energy-status").addClass(thermostat.energyUsage());
+});
 
-  $('.button-down').on('click', function () {
-    baseTemp -= 1
-    $text.text(baseTemp.toString() + 'C')
-  })
-}
+$("#down-button").click(function(){
+  $("#energy-status").removeClass(thermostat.energyUsage());
+  thermostat.down(1);
+  $("#temp-value").text(thermostat._temperature);
+  $("#energy-status").text(thermostat.energyUsage());
+  $("#energy-status").addClass(thermostat.energyUsage());
+});
 
-function resetTemp () {
-  var baseTemp = 20
-  var $text = $('.temp-value')
+$("#reset-button").click(function(){
+  $("#energy-status").removeClass(thermostat.energyUsage());
+  thermostat.reset();
+  $("#temp-value").text(thermostat._temperature);
+  $("#energy-status").text(thermostat.energyUsage());
+  $("#energy-status").addClass(thermostat.energyUsage());
+});
 
-  $('.button-temp-low').on('click', function () {
-    $text.text(baseTemp.toString() + "C")
-  })
-}
 
-// < 18 = low ; between 18 and 25 = medium; above 25 high
-
-function switchPSM () {
-  $('.bottom button').on('click', function () {
-
-    var tempRange = $(this).attr('class')
-    tempRange = tempRange.split(' ')[0].split('-')[2]
-    $('.temp-range').text(tempRange)
-  })
-}
+$("#psm-status-button").click(function(){
+  thermostat.switchPSMStatus();
+  $("#psm-status-button").text(thermostat.psmStatus);
+  $("#temp-value").text(thermostat._temperature);
+});
